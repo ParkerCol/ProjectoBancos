@@ -1,0 +1,93 @@
+
+
+--------- Creacion Tablas -------------
+
+CREATE TABLE BANCO
+(
+   BANCONIT int not null, 
+   BANCONOMBRE VARCHAR2(50) not null,
+   FECHACREACION VARCHAR2 (20) not null,
+   CONSTRAINT PK_BANCO PRIMARY KEY (BANCONIT) 
+);
+
+------------------------------------------------
+
+CREATE TABLE SUCURSAL
+(
+   SUCURSALID int not null, 
+   SUCURSALNOMBRE VARCHAR2(50) not null,
+   SUCURSALUBICACION CHAR(10) not null,
+   NUMEROEMPLEADOS int not null, 
+   ANYOSANTIGUEDAD int not null, 
+   BANCONIT int not null,
+   CONSTRAINT PK_SUCURSAL PRIMARY KEY (SUCURSALID),
+   CONSTRAINT FK_BANCO_SUCURSAL FOREIGN KEY (BANCONIT) REFERENCES BANCO (BANCONIT),
+   CONSTRAINT CHK_TBL_SUCURSAL check (SUCURSALUBICACION in ('Norte','Sur','Centro')) 
+);
+
+ 
+---------Procedimientos---------
+create or replace  procedure pcrRegistrarBanco(v_NitBanco number,v_Nombre VARCHAR2,v_Fecha varchar2)
+is
+
+begin 
+
+insert into banco (banconit , banconombre, fechacreacion)
+values (v_NitBanco,v_Nombre,v_fecha);
+
+end pcrRegistrarBanco;
+
+
+
+-----------------------------
+
+create or replace NONEDITIONABLE procedure pcrRegistrarSucursal(v_CodSucural number,v_NombreSucursal VARCHAR2,v_Ubicacion VARCHAR2, v_NumEmp number,v_AntigAnyos number, v_idBanco number)
+is
+
+begin 
+
+insert into sucursal values (v_CodSucural,v_NombreSucursal,v_Ubicacion, v_NumEmp,v_AntigAnyos,v_idBanco);
+
+end pcrRegistrarSucursal;
+
+
+-------------------------------
+
+create or replace procedure prcConsultaSucursales (o_cursor in out SYS_REFCURSOR , v_nomBanco in banco.banconombre%type, v_ubiSucursal in sucursal.sucursalubicacion%type)
+
+is
+
+begin
+   Open o_cursor For
+   select sucursal.sucursalid , sucursal.sucursalnombre , sucursal.numeroempleados
+   from sucursal 
+   inner join banco on sucursal.banconit = banco.banconit
+   where v_nomBanco = banco.banconombre and v_ubiSucursal = sucursal.sucursalubicacion;
+
+end prcConsultaSucursales;
+
+
+---------------- Inserts --------------------
+Insert into BANCO (BANCONIT,BANCONOMBRE,FECHACREACION) values (10,'BanColombia','3-10-1970');
+Insert into BANCO (BANCONIT,BANCONOMBRE,FECHACREACION) values (20,'Av Villas','13-12-1975');
+Insert into BANCO (BANCONIT,BANCONOMBRE,FECHACREACION) values (30,'Davivienda','23-9-1990');
+
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (10,'Bancolombia Campanario','Norte',15,30,10);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (20,'Bancolombia Centro','Centro',20,45,10);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (30,'Bancolombia TerraPlaza','Norte',7,5,10);
+
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (40,'AV TerraPlaza','Norte',7,5,20);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (50,'AV Centro','Centro',10,30,20);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (60,'AV Sur','Sur',9,40,20);
+
+
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (70,'Davivienda Campanario','Norte',10,10,30);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (80,'Davievienda Centro','Centro',15,30,30);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (90,'Davievienda Sur ','Sur',10,40,30);
+Insert into SUCURSAL (SUCURSALID,SUCURSALNOMBRE,SUCURSALUBICACION,NUMEROEMPLEADOS,ANYOSANTIGUEDAD,BANCONIT) values (100,'Davievienda TerraPlaza ','Norte',10,3,30);
+
+
+
+
+
+

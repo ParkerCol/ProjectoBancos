@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.respuestabancotxt = new System.Windows.Forms.TextBox();
             this.acceptarbtn = new System.Windows.Forms.Button();
             this.tiempocreacion = new System.Windows.Forms.DateTimePicker();
             this.NombreBancotxt = new System.Windows.Forms.TextBox();
@@ -39,6 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ubicacionSucursalcombo = new System.Windows.Forms.ComboBox();
+            this.returntxtbox = new System.Windows.Forms.TextBox();
+            this.bottonSucursal = new System.Windows.Forms.Button();
             this.IdBancoSucursaltxt = new System.Windows.Forms.TextBox();
             this.Antiguedadtxt = new System.Windows.Forms.TextBox();
             this.CantEmpleadostxt = new System.Windows.Forms.TextBox();
@@ -50,19 +54,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.bottonSucursal = new System.Windows.Forms.Button();
-            this.returntxtbox = new System.Windows.Forms.TextBox();
-            this.ubicacionSucursalcombo = new System.Windows.Forms.ComboBox();
-            this.respuestabancotxt = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.oracleDataAdapter1 = new Oracle.DataAccess.Client.OracleDataAdapter();
-            this.datagridSuc = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ubicacionSuccombo = new System.Windows.Forms.ComboBox();
-            this.buscartbtn = new System.Windows.Forms.Button();
-            this.resultadoBusquedatxt = new System.Windows.Forms.TextBox();
             this.buscadorNombreBancotxt = new System.Windows.Forms.TextBox();
+            this.resultadoBusquedatxt = new System.Windows.Forms.TextBox();
+            this.buscartbtn = new System.Windows.Forms.Button();
+            this.ubicacionSuccombo = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.datagridSuc = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -108,6 +107,15 @@
             this.tabPage1.Text = "Agregar Banco a Base de Datos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // respuestabancotxt
+            // 
+            this.respuestabancotxt.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.respuestabancotxt.Location = new System.Drawing.Point(18, 330);
+            this.respuestabancotxt.Name = "respuestabancotxt";
+            this.respuestabancotxt.ReadOnly = true;
+            this.respuestabancotxt.Size = new System.Drawing.Size(515, 20);
+            this.respuestabancotxt.TabIndex = 7;
+            // 
             // acceptarbtn
             // 
             this.acceptarbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -130,6 +138,7 @@
             // 
             // NombreBancotxt
             // 
+            this.NombreBancotxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombreBancotxt.Location = new System.Drawing.Point(294, 87);
             this.NombreBancotxt.Name = "NombreBancotxt";
             this.NombreBancotxt.Size = new System.Drawing.Size(252, 20);
@@ -137,6 +146,7 @@
             // 
             // IdBancotxt
             // 
+            this.IdBancotxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IdBancotxt.Location = new System.Drawing.Point(294, 43);
             this.IdBancotxt.Name = "IdBancotxt";
             this.IdBancotxt.Size = new System.Drawing.Size(251, 20);
@@ -193,6 +203,41 @@
             this.tabPage2.Text = "Agregar Sucursal a Base de Datos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // ubicacionSucursalcombo
+            // 
+            this.ubicacionSucursalcombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ubicacionSucursalcombo.FormattingEnabled = true;
+            this.ubicacionSucursalcombo.Items.AddRange(new object[] {
+            "Norte",
+            "Centro",
+            "Sur"});
+            this.ubicacionSucursalcombo.Location = new System.Drawing.Point(338, 126);
+            this.ubicacionSucursalcombo.Name = "ubicacionSucursalcombo";
+            this.ubicacionSucursalcombo.Size = new System.Drawing.Size(134, 21);
+            this.ubicacionSucursalcombo.TabIndex = 14;
+            // 
+            // returntxtbox
+            // 
+            this.returntxtbox.Enabled = false;
+            this.returntxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returntxtbox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.returntxtbox.Location = new System.Drawing.Point(52, 346);
+            this.returntxtbox.Name = "returntxtbox";
+            this.returntxtbox.ReadOnly = true;
+            this.returntxtbox.Size = new System.Drawing.Size(486, 20);
+            this.returntxtbox.TabIndex = 13;
+            // 
+            // bottonSucursal
+            // 
+            this.bottonSucursal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.bottonSucursal.Location = new System.Drawing.Point(585, 327);
+            this.bottonSucursal.Name = "bottonSucursal";
+            this.bottonSucursal.Size = new System.Drawing.Size(169, 56);
+            this.bottonSucursal.TabIndex = 12;
+            this.bottonSucursal.Text = "Acceptar y Ingresar Sucursal";
+            this.bottonSucursal.UseVisualStyleBackColor = false;
+            this.bottonSucursal.Click += new System.EventHandler(this.bottonSucursal_Click);
+            // 
             // IdBancoSucursaltxt
             // 
             this.IdBancoSucursaltxt.Location = new System.Drawing.Point(337, 277);
@@ -216,6 +261,7 @@
             // 
             // NombeSucursaltxt
             // 
+            this.NombeSucursaltxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NombeSucursaltxt.Location = new System.Drawing.Point(340, 73);
             this.NombeSucursaltxt.Name = "NombeSucursaltxt";
             this.NombeSucursaltxt.Size = new System.Drawing.Size(132, 20);
@@ -223,6 +269,7 @@
             // 
             // IdSucursaltxt
             // 
+            this.IdSucursaltxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.IdSucursaltxt.Location = new System.Drawing.Point(340, 24);
             this.IdSucursaltxt.Name = "IdSucursaltxt";
             this.IdSucursaltxt.Size = new System.Drawing.Size(132, 20);
@@ -282,47 +329,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Numero Identificacion Sucursal";
             // 
-            // bottonSucursal
-            // 
-            this.bottonSucursal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.bottonSucursal.Location = new System.Drawing.Point(585, 327);
-            this.bottonSucursal.Name = "bottonSucursal";
-            this.bottonSucursal.Size = new System.Drawing.Size(169, 56);
-            this.bottonSucursal.TabIndex = 12;
-            this.bottonSucursal.Text = "Acceptar y Ingresar Sucursal";
-            this.bottonSucursal.UseVisualStyleBackColor = false;
-            this.bottonSucursal.Click += new System.EventHandler(this.bottonSucursal_Click);
-            // 
-            // returntxtbox
-            // 
-            this.returntxtbox.Enabled = false;
-            this.returntxtbox.Location = new System.Drawing.Point(52, 346);
-            this.returntxtbox.Name = "returntxtbox";
-            this.returntxtbox.ReadOnly = true;
-            this.returntxtbox.Size = new System.Drawing.Size(486, 20);
-            this.returntxtbox.TabIndex = 13;
-            // 
-            // ubicacionSucursalcombo
-            // 
-            this.ubicacionSucursalcombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ubicacionSucursalcombo.FormattingEnabled = true;
-            this.ubicacionSucursalcombo.Items.AddRange(new object[] {
-            "Norte",
-            "Centro",
-            "Sur"});
-            this.ubicacionSucursalcombo.Location = new System.Drawing.Point(338, 126);
-            this.ubicacionSucursalcombo.Name = "ubicacionSucursalcombo";
-            this.ubicacionSucursalcombo.Size = new System.Drawing.Size(134, 21);
-            this.ubicacionSucursalcombo.TabIndex = 14;
-            // 
-            // respuestabancotxt
-            // 
-            this.respuestabancotxt.Location = new System.Drawing.Point(18, 330);
-            this.respuestabancotxt.Name = "respuestabancotxt";
-            this.respuestabancotxt.ReadOnly = true;
-            this.respuestabancotxt.Size = new System.Drawing.Size(515, 20);
-            this.respuestabancotxt.TabIndex = 7;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.buscadorNombreBancotxt);
@@ -340,44 +346,23 @@
             this.tabPage3.Text = "Buscar Sucursales";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // datagridSuc
+            // buscadorNombreBancotxt
             // 
-            this.datagridSuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridSuc.Location = new System.Drawing.Point(30, 122);
-            this.datagridSuc.Name = "datagridSuc";
-            this.datagridSuc.Size = new System.Drawing.Size(688, 272);
-            this.datagridSuc.TabIndex = 0;
+            this.buscadorNombreBancotxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.buscadorNombreBancotxt.Location = new System.Drawing.Point(198, 13);
+            this.buscadorNombreBancotxt.Name = "buscadorNombreBancotxt";
+            this.buscadorNombreBancotxt.Size = new System.Drawing.Size(169, 20);
+            this.buscadorNombreBancotxt.TabIndex = 7;
             // 
-            // label10
+            // resultadoBusquedatxt
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(46, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Nombre del Banco";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(46, 54);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Ubicacion Sucursal";
-            // 
-            // ubicacionSuccombo
-            // 
-            this.ubicacionSuccombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ubicacionSuccombo.FormattingEnabled = true;
-            this.ubicacionSuccombo.Items.AddRange(new object[] {
-            "Norte",
-            "Centro",
-            "Sur"});
-            this.ubicacionSuccombo.Location = new System.Drawing.Point(157, 46);
-            this.ubicacionSuccombo.Name = "ubicacionSuccombo";
-            this.ubicacionSuccombo.Size = new System.Drawing.Size(138, 21);
-            this.ubicacionSuccombo.TabIndex = 4;
+            this.resultadoBusquedatxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultadoBusquedatxt.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.resultadoBusquedatxt.Location = new System.Drawing.Point(372, 76);
+            this.resultadoBusquedatxt.Name = "resultadoBusquedatxt";
+            this.resultadoBusquedatxt.ReadOnly = true;
+            this.resultadoBusquedatxt.Size = new System.Drawing.Size(318, 20);
+            this.resultadoBusquedatxt.TabIndex = 6;
             // 
             // buscartbtn
             // 
@@ -389,20 +374,44 @@
             this.buscartbtn.UseVisualStyleBackColor = true;
             this.buscartbtn.Click += new System.EventHandler(this.buscartbtn_Click);
             // 
-            // resultadoBusquedatxt
+            // ubicacionSuccombo
             // 
-            this.resultadoBusquedatxt.Location = new System.Drawing.Point(372, 76);
-            this.resultadoBusquedatxt.Name = "resultadoBusquedatxt";
-            this.resultadoBusquedatxt.ReadOnly = true;
-            this.resultadoBusquedatxt.Size = new System.Drawing.Size(318, 20);
-            this.resultadoBusquedatxt.TabIndex = 6;
+            this.ubicacionSuccombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ubicacionSuccombo.FormattingEnabled = true;
+            this.ubicacionSuccombo.Items.AddRange(new object[] {
+            "Norte",
+            "Centro",
+            "Sur"});
+            this.ubicacionSuccombo.Location = new System.Drawing.Point(229, 46);
+            this.ubicacionSuccombo.Name = "ubicacionSuccombo";
+            this.ubicacionSuccombo.Size = new System.Drawing.Size(138, 21);
+            this.ubicacionSuccombo.TabIndex = 4;
             // 
-            // buscadorNombreBancotxt
+            // label11
             // 
-            this.buscadorNombreBancotxt.Location = new System.Drawing.Point(157, 13);
-            this.buscadorNombreBancotxt.Name = "buscadorNombreBancotxt";
-            this.buscadorNombreBancotxt.Size = new System.Drawing.Size(169, 20);
-            this.buscadorNombreBancotxt.TabIndex = 7;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(93, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Ubicacion Sucursal";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(177, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Nombre del Banco ( Case Sensitive)";
+            // 
+            // datagridSuc
+            // 
+            this.datagridSuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridSuc.Location = new System.Drawing.Point(30, 122);
+            this.datagridSuc.Name = "datagridSuc";
+            this.datagridSuc.Size = new System.Drawing.Size(688, 272);
+            this.datagridSuc.TabIndex = 0;
             // 
             // Form1
             // 

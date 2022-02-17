@@ -30,9 +30,9 @@ namespace Banco
             string respuestabanco;
 
             idBanco = int.Parse(IdBancotxt.Text);
-            nombreBanco = NombreBancotxt.Text;
+            nombreBanco = NombreBancotxt.Text.Trim();
             fechaCreacion = tiempocreacion.Text;
-
+            
             respuestabanco = banco.agregarBanco(idBanco, nombreBanco, fechaCreacion);
 
             respuestabancotxt.Text = respuestabanco;
@@ -65,14 +65,13 @@ namespace Banco
 
         private void buscartbtn_Click(object sender, EventArgs e)
         {
-            string nombreBanco = buscadorNombreBancotxt.Text;
+            string nombreBanco = buscadorNombreBancotxt.Text.Trim();
             string ubicacionSuc = ubicacionSuccombo.Text;
             // Creo Data Set
             DataSet miData = new DataSet();
             miData = miSucursal.consultar( nombreBanco, ubicacionSuc);
             datagridSuc.DataSource = miData;
-            datagridSuc.DataMember = " Sucursales";
-            
+            datagridSuc.DataMember = " Sucursales";            
                       
             
            
